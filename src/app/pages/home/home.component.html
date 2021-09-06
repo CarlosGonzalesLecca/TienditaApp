@@ -1,0 +1,261 @@
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+      <!-- row -->
+      <div class="row">
+        <!-- shop -->
+        <div class="col-md-4 col-xs-6">
+          <div class="shop">
+            <div class="shop-img">
+              <img src="./../../../assets/img/nike1.png" alt="">
+            </div>
+            <div class="shop-body">
+              <h3>Shoes<br>Collection</h3>
+              <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- /shop -->
+  
+        <!-- shop -->
+        <div class="col-md-4 col-xs-6">
+          <div class="shop">
+            <div class="shop-img">
+              <img src="./../../../assets/img/product06.png" alt="">
+            </div>
+            <div class="shop-body">
+              <h3>Technology<br>Collection</h3>
+              <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- /shop -->
+  
+        <!-- shop -->
+        <div class="col-md-4 col-xs-6">
+          <div class="shop">
+            <div class="shop-img">
+              <img src="./../../../assets/img/product07.png" alt="">
+            </div>
+            <div class="shop-body">
+              <h3>Phone<br>Collection</h3>
+              <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- /shop -->
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /SECTION -->
+  
+  <!-- SECTION -->
+  <div class="section">
+    <!-- container -->
+    <div class="container">
+      <!-- row -->
+      <div class="row">
+  
+        <!-- section title -->
+        <div class="col-md-12">
+          <div class="section-title">
+            <h3 class="title">Nuevos productos</h3>
+          </div>
+          
+          
+        </div>
+        <!-- /section title -->
+
+        <nav id="navigation">
+          <!-- container -->
+          <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+              <!-- NAV -->
+              <ul class="main-nav nav py-3">
+                <li class="active" (click)="selectAllProducts()"><span>Todos</span></li>
+                <li><span (click)="selectforCategory('Calzado')">Calzado</span></li>
+                <li><span (click)="selectforCategory('Tecnología')">Tecnología</span></li>
+                <li><span (click)="selectforCategory('Teléfonos')">Teléfonos</span></li>               
+                <li><span (click)="selectforCategory('Juegos')">Juegos</span></li>               
+              </ul>
+              <br>
+              <!-- TODO INPUT FILTER-->
+              <div>
+                <mat-form-field>
+                  <input type="text"
+                         placeholder="Introduce el nombre del producto a buscar"
+                         aria-label="Buscador"
+                         matInput
+                         [(ngModel)]="termino"
+                         (input) = "buscar()"
+                         [matAutocomplete]="auto">
+                  
+                    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="opcionseleccionada($event)">
+                      
+                      <mat-option *ngFor="let product of products" [value]="product" (click)="getProductForOptionSelect(product.name)">          
+                        <div>
+                          {{product.name}} 
+                        </div>           
+                      </mat-option>             
+                      <mat-option *ngIf="products.length === 0 && termino"  value = "">          
+                        <div>
+                          No se encontró resultados para el término {{termino}}
+                        </div>           
+                      </mat-option>             
+                      
+                    </mat-autocomplete>      
+                         <!-- <div>
+                           <pre>{{heroeseleccionado|json}}</pre>
+                         </div> -->
+              </mat-form-field>
+              </div>
+              <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+          </div>
+          <!-- /container -->
+        </nav>
+  
+        <!-- Products tab & slick -->
+        <div class="col-md-12">
+          <div class="pipe_buttons">
+            <button class="btn btn-outline-primary" (click)="ordenarporalfa('cantidad')">Popular</button>
+            <button class="btn btn-outline-primary" (click)="ordenarporalfa('preciolow')">Precio de Min a Max</button>
+            <button class="btn btn-outline-primary" (click)="ordenarporalfa('preciohigh')">Precio de Max a Min</button>
+          </div><br>
+          <div class="row products__container">
+            <div class="col-md-4 col-sm-6 products__content mix {{product.category}}" *ngFor="let product of products|ordenar:poralfa">
+              <div class="card my-2">
+
+                  <img [src]="product.image" 
+                  (click)="selectProduct(product.id)"
+                  alt="product.name" 
+                  width="200px" 
+                  class="card-img-top" 
+                  style="cursor:pointer;">
+                  <div class="card-header">
+                    <div class="card-title">
+                      <p>{{product.name|titlecase}}</p>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h6>{{product.description.substr(0, 40)}} ....</h6>
+                    <p class="lead">{{product.price | currency:'PEN'}}</p>
+                    <p class="lead">{{product.category}}</p>
+                  </div>
+  
+                  <div class="row d-flex justify-content-center border-primary my-3">
+                    <div class="col-md-6 ">
+                      <button class="btn btn-outline-primary btn-sm btn-block"
+                        [class.disabled]="product.quantity < 1"
+                        [class.btn-outline-danger]="product.quantity < 1"
+                        (click)="AddProduct(product.id)"
+                        [disabled]="product.quantity < 1">
+                        {{ product.quantity < 1 ? "NO STOCK" : "Add To Cart"}}
+                      </button>
+                    </div>
+                  </div>
+  
+              </div>  
+            </div>
+  
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  <!-- /container -->
+  
+  <!-- /SECTION -->
+  
+  <!-- HOT DEAL SECTION -->
+  <div id="hot-deal" class="section">
+    <!-- container -->
+    <div class="container">
+      <!-- row -->
+      <div class="row">
+        <div class="col-md-12 article">
+            <div class="imgback"></div>
+            <div class="imgpost"></div>            
+          <div class="hot-deal">
+            <ul class="hot-deal-countdown">
+              <li>
+                <div>
+                  <h3>02</h3>
+                  <span>Days</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h3>10</h3>
+                  <span>Hours</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h3>34</h3>
+                  <span>Mins</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h3>60</h3>
+                  <span>Secs</span>
+                </div>
+              </li>
+            </ul>
+            <h2 class="text-uppercase">hot deal this week</h2>
+            <p>New Collection Up to 50% OFF</p>
+            <a class="primary-btn cta-btn" href="#">Shop now</a>
+          </div>
+        </div>
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /HOT DEAL SECTION -->
+  
+  
+  <!-- NEWSLETTER -->
+  <div id="newsletter" class="section">
+    <!-- container -->
+    <div class="container">
+      <!-- row -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="newsletter">
+            <p>Sign Up for the <strong>NEWSLETTER</strong></p>
+            <form>
+              <input class="input" type="email" placeholder="Enter Your Email">
+              <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+            </form>
+            <ul class="newsletter-follow">
+              <li>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fa fa-pinterest"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /NEWSLETTER -->
+  

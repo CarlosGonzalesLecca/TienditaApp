@@ -1,0 +1,129 @@
+{
+  "productos": [
+    {
+      "id": 1,
+      "name": "Asus ROG Strix G17 17.3''",
+      "category": "Tecnología",
+      "description": "Intel Core i7 1TB SSD 16GB RAM 6GB Video",
+      "image": "https://plazavea.vteximg.com.br/arquivos/ids/1267735-1000-1000/image-7ca8ed7127414b03b14a9393b299c3e4.jpg?v=637520533529430000",
+      "price": 7099,
+      "quantity": 20,
+      "images": [
+        
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Xiaomi 11 Pro",
+      "category": "Teléfonos",
+      "description": "Pantalla 6,81” WQHD+, Procesador Snapdragon 888, RAM 8/12 GB LPDDR5, Cámara 20 MP",
+      "image": "https://cdn-files.kimovil.com/default/0005/88/thumb_487973_default_big.jpeg",
+      "price": 3699,
+      "quantity": 12,
+      "images": [
+        "https://www.xiaomiadictos.com/wp-content/uploads/2021/07/304bbeec-xiaomi-mi-10-lite-5g-2-1.jpg",
+        "https://www.tuexpertomovil.com/wp-content/uploads/2019/12/funciones-opciones-ocultas-xiaomi-miui.jpg.webp",
+        "https://www.proandroid.com/wp-content/uploads/2019/11/xiaomi-mi-note-10-venta.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Play Station 5",
+      "category": "Tecnología",
+      "description": "Play Station 5 Versión Blu Ray CFI-1015A Sony (2 Juegos Gratis) ",
+      "image": "https://www.lavictoria.ec/wp-content/uploads/2021/07/CONSOLA-PLAY-STATION-5-VERSION-BLU-RAY-SONY-CRASH-SPIDERMAN-1.jpg",
+      "price": 3790,
+      "quantity": 31,
+      "images": ""
+    },
+    {
+      "id": 4,
+      "name": "Adidas Yeezy Max 2020",
+      "category": "Calzado",
+      "description": "zapatillas modelo 2020 Yeezy Ultra Confort",
+      "image": "https://sneakernews.com/wp-content/uploads/2019/10/adidas-yeezy-700-mnvn-triple-black.jpg",
+      "price": 490,
+      "quantity": 11,
+      "images": ""
+    },
+    {
+      "id": 5,
+      "name": "Jordan 2020",
+      "category": "Calzado",
+      "description": "Botines modelo 2021 Jordan Ultra Confort",
+      "image": "https://media.revistagq.com/photos/5ca5e76627f264839a7c7d01/master/w_1500,c_limit/zapatillas_historicas_baloncesto__134988628.jpg",
+      "price": 490,
+      "quantity": 0,
+      "images": ""
+    },
+    {
+      "id": 6,
+      "name": "Play Station 4",
+      "category": "Tecnología",
+      "description": "Sony Play Station 4 1TB HDD solo en Playstation PS4 Console Slim Bundle - Incluye 3X juegos",
+      "image": "https://m.media-amazon.com/images/I/71ZrwxeXnXL._SL1500_.jpg",
+      "price": 1590,
+      "quantity": 26,
+      "images": ""
+    },
+    {
+      "id": 7,
+      "name": "Nike ZX",
+      "category": "Calzado",
+      "description": "zapatillas modelo 2021 ZX Ultra Confort 2K Boost",
+      "image": "https://www.dondeir.com/wp-content/uploads/2020/07/adidas-zx-2.jpg",
+      "price": 490,
+      "quantity": 10,
+      "images": ""
+    },
+    {
+      "id": 8,
+      "name": "Nike Mercury",
+      "category": "Deportivo",
+      "description": "Calzado de fútbol para terreno firme Nike Mercurial Superfly 8",
+      "image": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/986560e1-ad23-4c63-8d65-736c0f44c2b4/calzado-de-f%C3%BAtbol-para-terreno-firme-mercurial-superfly-8-pro-fg-hpgDrm.png",
+      "price": 390,
+      "quantity": 8,
+      "images": [
+        "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/e950ca86-db8f-43ae-af21-6ff400a647ad/calzado-de-f%C3%BAtbol-para-terreno-firme-mercurial-superfly-8-elite-fg-DBtHQg.png",
+        "https://www.futbolemotion.com/imagesarticulos/102344/750/bota-nike-mercurial-superfly-fg-acc-electric-green-hyper-punch-0.jpg",
+        "https://thumblr.uniid.it/product/213577/d0eb1e4ce132.jpg"
+        
+      ]
+    },   
+    {
+      "id": 9,
+      "name": "God of War Pack",
+      "category": "Juegos",
+      "description": "God of War III + God of War IV Day One Special Edition (Pack)",
+      "image": "http://s3.amazonaws.com/imagenes-sellers-mercado-ripley/2021/03/11170233/Foto-17-10-20-15-25-23-2-1.jpg",
+      "price": 290,
+      "quantity": 12,
+      "images": [
+        
+      ]
+    },    
+    {
+      "id": 10,
+      "name": "Iphone 12 Pro Max",
+      "category": "Teléfonos",
+      "description": "Super Retina XDR OLED 512GB de 6,7 Ratio 19.5:9 FullHD+ a 2.778 x 1.184 HDR10 458 ppp",
+      "image": "https://d500.epimg.net/cincodias/imagenes/2020/09/28/smartphones/1601280785_078185_1601281059_noticia_normal.jpg",
+      "price": 7670,
+      "quantity": 30,
+      "images": [        
+      ]
+    },    
+    {
+      "id": 11,
+      "name": "HP ENVY Laptop",
+      "category": "Tecnología",
+      "description": "HP LAPTOP 15-EP0004LA 15.6'' CORE I7 512GB+32GB OPTANE 16GB 6GB",
+      "image": "https://falabella.scene7.com/is/image/FalabellaPE/17750113_1?wid=800&hei=800&qlt=70",
+      "price": 7399,
+      "quantity": 10,
+      "images": [        
+      ]
+    }  
+  ]
+}

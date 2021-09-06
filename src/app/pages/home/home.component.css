@@ -1,0 +1,12 @@
+
+.pipe_buttons{
+    margin: 2.5rem;
+    text-align: center;
+}
+
+.pipe_buttons button{
+    margin-right: 1rem;
+    width: 180px;
+    border-radius: 5px;
+
+}

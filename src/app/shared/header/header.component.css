@@ -1,0 +1,28 @@
+
+.in_header{
+    position: relative;
+    border-radius: 50px 0 0 50px;
+    outline: none;
+}
+
+.search-btn{
+    position: absolute;
+}
+
+.header-logo{
+    margin-top: 1rem;
+}
+
+.logo{
+    font-size: 2em;
+    color: aliceblue;
+}
+
+.subheader{
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.subheader h3{    
+    font-weight: 500;
+}
