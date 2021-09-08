@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   errorfound: boolean = false;
   poralfa:string = ''
  
-  @ViewChild('searchInput') searchInput;
+  @ViewChild('searchInput') searchInput:HTMLInputElement;
 
   constructor(
     private productService: ProductService,
@@ -64,12 +64,16 @@ export class HomeComponent implements OnInit {
   buscar(){
     this.productService.getForTermino(this.termino)
      .subscribe(resp=>{
-       const array = Array.from([resp])
-       console.log("buscador",resp)     
-       this.products = array;      
+      //  console.log(resp)
+       if(resp === undefined){
+         this.errorfound === true
+       }
+         const array = Array.from([resp])
+         this.products = array;   
+       
      })
 
-       if(this.searchInput === ''){
+       if(this.termino === ''){
         return this.productService.getProducts().subscribe(resp=>{
            this.products = resp
         })
@@ -80,14 +84,17 @@ export class HomeComponent implements OnInit {
 
   //este metodo pondra en el input la opcion seleccionada 
   opcionseleccionada(event:MatAutocompleteSelectedEvent){
-    // if(!event.option.value){   
-    //   this.heroeseleccionado = undefined   
-    //   return console.log("no hay valor")
-    // }
+    
     const producto: Producto = event.option.value    
-    this.termino= producto.name
-      // console.log(this.heroeseleccionado)
+    this.termino= producto?.name
+    // console.log(this.termino)
+    this.productService.getSingleProduct(producto.id)
+    .subscribe(prod=>{this.products = prod},err=>{
+      this.errorfound = true
+      this.products = []
+    })
   }
+
 
   ordenarporalfa(valor:string){
     this.poralfa = valor

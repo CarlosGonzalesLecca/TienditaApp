@@ -18,7 +18,7 @@
           <!-- container -->
           <div class="container">
             <!-- responsive-nav -->
-            <div id="responsive-nav">
+            <div>
               <!-- NAV -->
               <ul class="main-nav nav py-3">
                 <li class="active"><span (click)="selectAllProducts()">Todos</span></li>
@@ -42,16 +42,19 @@
                   
                     <mat-autocomplete #auto="matAutocomplete" (optionSelected)="opcionseleccionada($event)">
                       
-                      <mat-option *ngFor="let product of products" [value]="product" (click)="getProductForOptionSelect(product.name)">          
-                        <div>
-                          {{product.name}} 
+                      <mat-option *ngFor="let product of products" [value]="product">          
+                        <div *ngIf="products[0]; else name">
+                          {{product?.name}} 
                         </div>           
-                      </mat-option>             
-                      <mat-option *ngIf="products.length === 0 && termino"  value = "">          
-                        <div>
-                          No se encontró resultados para el término {{termino}}
-                        </div>           
-                      </mat-option>             
+                      </mat-option> 
+                      <ng-template #name>
+                        <mat-option value = "">          
+                          <div>
+                            No se encontró resultados para el término {{termino}}
+                          </div>           
+                        </mat-option>          
+                      </ng-template>
+                                  
                       
                     </mat-autocomplete>      
                          <!-- <div>
@@ -69,14 +72,15 @@
         <!-- Products tab & slick -->
         <div class="col-md-12">
           <div class="pipe_buttons">
-            <button class="btn btn-outline-primary" (click)="ordenarporalfa('cantidad')">Popular</button>
-            <button class="btn btn-outline-primary" (click)="ordenarporalfa('preciolow')">Precio de Min a Max</button>
-            <button class="btn btn-outline-primary" (click)="ordenarporalfa('preciohigh')">Precio de Max a Min</button>
+            <button class="btn btn-outline-primary" (click)="ordenarporalfa('cantidad')"><span class="btn-span">Popular <i class='bx bxs-star'></i></span></button>
+            <button class="btn btn-outline-primary" (click)="ordenarporalfa('preciolow')"><span class="btn-span">Precio <i class='bx bx-chevron-up'></i></span></button>
+            <button class="btn btn-outline-primary" (click)="ordenarporalfa('preciohigh')"><span class="btn-span">Precio <i class='bx bx-chevron-down'></i></span></button>
           </div><br>
           <div class="row products__container">
             <div class="col-md-4 col-sm-6 products__content" *ngFor="let product of products|ordenar:poralfa">
-              <app-products-card [product]="product"></app-products-card>
+              <app-products-card [product]="product" *ngIf="product?.name else error"></app-products-card>
               <!-- <div class="card my-2">
+
                   <img [src]="product.image" 
                   (click)="selectProduct(product.id)"
                   alt="product.name" 
@@ -107,9 +111,21 @@
                   </div>
   
               </div>   -->
+              
+              
             </div>
-  
+            
           </div>
+
+          
+          <ng-template #error>
+            <h2>No se encontraron resultados para tu búsqueda</h2>
+            <div>
+              <p>verifica el texto ingresado en el buscador</p>
+            </div>
+          </ng-template>
+          
+            
   
         </div>
       </div>

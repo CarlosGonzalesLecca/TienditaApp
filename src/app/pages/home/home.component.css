@@ -7,7 +7,18 @@
 .pipe_buttons button{
     margin-right: 1rem;
     margin-bottom: 1rem;
-    width: 180px;
+    width: 140px;
     border-radius: 5px;
+}
 
+
+::ng-deep .mat-form-field-wrapper{
+    width: 400px !important;
+}
+
+@media screen and (max-width: 420px) {
+
+    ::ng-deep .mat-form-field-wrapper{
+        width: 300px !important;
+    }
 }

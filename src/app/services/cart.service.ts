@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { DebugElement, Injectable } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { CartServer, CartUsuario } from '../interfaces/cart.interfaces';
 import { ProductService } from './product.service';
@@ -83,7 +82,7 @@ export class CartService {
           const price = p.product[0].price
           Total +=  price
         })
-      console.log("Total",Total)
+      
       this.cartDataServer.total = Total;  
       this.cartTotal$.next(this.cartDataServer.total);
       this.cartDataObs$.next({...this.cartDataServer});

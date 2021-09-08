@@ -116,6 +116,7 @@ ul, ol {
 /*-- Text input --*/
 
 .input {
+  width: 200px;
   height: 40px;
   padding: 0px 15px;
   border: 1px solid #E4E7ED;
@@ -637,6 +638,7 @@ textarea.input {
   content: "";
   display: block;
   width: 0%;
+  margin-left: 15px;
   height: 2px;
   background-color: #D10024;
   -webkit-transition: 0.2s all;
@@ -644,7 +646,7 @@ textarea.input {
 }
 
 .main-nav>li>span:hover:after, .main-nav>li>span:focus:after, .main-nav>li.active>span:after {
-  width: 100%;
+  width: 70%;
 }
 
 .header-ctn li.nav-toggle {
@@ -688,7 +690,7 @@ textarea.input {
   }
   .main-nav>li>span {
     padding: 15px;
-    color: #FFF;
+    color: #000;
   }
 }
 
@@ -2176,6 +2178,36 @@ textarea.input {
 .custom-dots .slick-dots {
   position: static;
   margin: 15px 0px;
+}
+
+.btn-span{
+  display: inline-flex;
+  align-items: center;
+}
+
+.bx-chevron-up{
+  font-size: 30px !important;
+}
+
+.bx-chevron-down{
+  font-size: 30px !important;
+}
+
+.bxs-star{
+  font-size: 20px !important;
+}
+
+.pipe_buttons{
+  margin: 2.5rem;
+  text-align: center;
+}
+
+.pipe_buttons button{
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  width: 140px;
+  height: 40px;
+  border-radius: 5px;
 }
 
 /*=========================================================

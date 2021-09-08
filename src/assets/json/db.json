@@ -67,9 +67,23 @@
         "https://media.revistagq.com/photos/5ca5e76627f264839a7c7d01/master/w_1500,c_limit/zapatillas_historicas_baloncesto__134988628.jpg",        
         "https://static.nike.com/a/images/t_prod_ss/w_960,c_limit,f_auto/xxf2d255rqv3361bczzm/air-jordan-13-retro-wolf-grey.jpg"
       ]
-    },
+    },    
     {
       "id": 6,
+      "name": "Nike ZX",
+      "category": "Calzado",
+      "description": "zapatillas modelo 2021 ZX Ultra Confort 2K Boost VaporMax Plus",
+      "image": "https://static.nike.com/a/images/t_prod_ss/w_960,c_limit,f_auto/hdlqlzjfiuxbwty8wbpn/nike-air-vapormax-plus-obsidian-photo-blue-release-date.jpg",
+      "price": 490,
+      "quantity": 10,
+      "images": [
+        "https://c.static-nike.com/a/images/t_prod_ss/w_960,c_limit,f_auto/zgvzcvaytmvs6orlbf4o/retuned-air.jpg",
+        "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/ezsy35leizoneu1cfbbs/calzado-air-vapormax-plus-yATY9p7E.png",
+        "https://www.runnics.com/wp-content/uploads/2019/12/nike-air-vapormax-plus-924453101-talla-440.jpg"
+      ]
+    },
+    {
+      "id": 7,
       "name": "Play Station 4",
       "category": "Tecnología",
       "description": "Sony Play Station 4 1TB HDD solo en Playstation PS4 Console Slim Bundle - Incluye 3X juegos",
@@ -80,16 +94,6 @@
         "https://m.media-amazon.com/images/I/71ZrwxeXnXL._SL1500_.jpg",
         "https://phantom.pe/pub/media/catalog/product/cache/71a032b60710d907b279b6023a79a12b/p/s/ps4_mega_pack_2.jpg"
       ]
-    },
-    {
-      "id": 7,
-      "name": "Nike ZX",
-      "category": "Calzado",
-      "description": "zapatillas modelo 2021 ZX Ultra Confort 2K Boost",
-      "image": "https://www.dondeir.com/wp-content/uploads/2020/07/adidas-zx-2.jpg",
-      "price": 490,
-      "quantity": 10,
-      "images": ""
     },
     {
       "id": 8,

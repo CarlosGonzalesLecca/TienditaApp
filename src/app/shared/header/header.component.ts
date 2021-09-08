@@ -25,16 +25,8 @@ export class HeaderComponent implements OnInit {
 
   this.cartService.cartDataObs$.subscribe(data =>{
     this.cartData = data
-    // console.log("sjkl",this.cartData)
-    // if(this.cartData.data[0].numInCart === 0){
-
-    // }
-
-    // this.cartData.data.shift()
   }
     );
-
-  // console.log(this.cartData.data)
 
   }
 

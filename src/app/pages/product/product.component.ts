@@ -41,12 +41,10 @@ export class ProductComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(param=>{
       this.codigo = param.id
-      console.log(this.codigo)      
     })
 
     this.productService.getSingleProduct(this.codigo*1).subscribe(prod=>{
       this.producto = prod[0]
-      console.log(this.producto)
       this.secondaryImages = this.producto.images
     })
   }

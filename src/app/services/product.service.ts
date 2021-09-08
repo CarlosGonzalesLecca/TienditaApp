@@ -10,8 +10,6 @@ export class ProductService {
 
   elemento: any;
 
-  private url:string = "http://localhost:3000/productos"
-
   constructor(private http: HttpClient) { }
 
   getProducts(){
@@ -36,8 +34,11 @@ export class ProductService {
   getForTermino(termino:string){
     let prods = datos.productos.find(prod=>{
       let obj = prod.name.toLocaleLowerCase().trim().includes(termino)
-      console.log("OBJ",obj)
-      return obj
+      if(obj){
+        return obj
+      }else{
+        return undefined
+      }
      })
      return of(prods)
   }
