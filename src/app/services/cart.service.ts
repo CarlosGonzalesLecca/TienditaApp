@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { DebugElement, Injectable } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { CartServer, CartUsuario } from '../interfaces/cart.interfaces';
 import { ProductService } from './product.service';
@@ -33,38 +33,65 @@ export class CartService {
 
   constructor(
     private productService: ProductService,
-    private httpClient: HttpClient,
     private router: Router,
   ) { 
+    
+    // let infoUserCart: CartUsuario = JSON.parse(localStorage.getItem('cart')); 
 
-    let infoUserCart: CartUsuario = JSON.parse(localStorage.getItem('cart')); 
-
-    if (infoUserCart !== null && infoUserCart !== undefined && infoUserCart.total !== 0){
-      this.cartDataClient = infoUserCart;
-      this.cartDataClient.prodData.forEach(prodData=> {
-        this.productService.getSingleProduct(prodData.id).subscribe(actualProduct=>{
-          if (this.cartDataServer.data[0].numInCart === 0) {
-            this.cartDataServer.data[0].product = actualProduct;
-            this.cartDataServer.data[0].numInCart = prodData.incart;
-            this.calculateTotal();
-            this.cartDataClient.total = this.cartDataServer.total
-            localStorage.setItem('cart',JSON.stringify(this.cartDataClient))
-          }else{
-            this.cartDataServer.data.push({
-              product: actualProduct,
-              numInCart: prodData.incart
-            })
-            this.calculateTotal()
-            this.cartDataClient.total = this.cartDataServer.total
-            localStorage.setItem('cart',JSON.stringify(this.cartDataClient))
-          }
-          // this.cartDataObs$.next({...this.cartDataServer});
-        })
-      });
-    }
+    // if (infoUserCart !== null && infoUserCart !== undefined && infoUserCart.total !== 0){
+    //   this.cartDataClient = infoUserCart;
+    //   this.cartDataClient.prodData.forEach(prodData=> {
+    //     this.productService.getSingleProduct(prodData.id).subscribe(actualProduct=>{
+    //       // if (this.cartDataServer.data[0].numInCart === 0) {
+    //       //   this.cartDataServer.data[0].product = actualProduct;
+    //       //   this.cartDataServer.data[0].numInCart = prodData.incart;
+    //       //   this.calculateTotal();
+            
+    //       //   this.cartDataClient.total = this.cartDataServer.total
+    //         localStorage.setItem('cart',JSON.stringify(this.cartDataClient))
+    //       // }
+    //       // else{
+    //         this.cartDataServer.data.push({
+    //           product: actualProduct,
+    //           numInCart: prodData.incart
+    //         })            
+    //         this.calculateTotal()
+            
+    //         console.log(this.cartDataServer)
+    //         this.cartDataClient.total = this.cartDataServer.total
+    //         localStorage.setItem('cart',JSON.stringify(this.cartDataClient))
+    //       // }
+    //       this.cartDataObs$.next({...this.cartDataServer});
+    //     })
+    //   });
+    // }
   }
 
-  AddProductToCart(id: Number, quantity?: number) {
+  AddProductInCart(id: number , quantity?: number){
+    this.productService.getSingleProduct(id).subscribe(actualProd=>{
+      if (this.cartDataServer.data[0].product  === undefined){
+        this.cartDataServer.data[0].product = actualProd
+      }else{
+        this.cartDataServer.data.push({
+          product: actualProd,
+          numInCart:1
+        })      
+      }
+      
+      let Total = 0;
+        this.cartDataServer.data.forEach( p =>{
+          const price = p.product[0].price
+          Total +=  price
+        })
+      console.log("Total",Total)
+      this.cartDataServer.total = Total;  
+      this.cartTotal$.next(this.cartDataServer.total);
+      this.cartDataObs$.next({...this.cartDataServer});
+    })
+
+  }
+
+  AddProductToCart(id: number, quantity?: number) {
 
     this.productService.getSingleProduct(id).subscribe(prod => {
       // SI EL CARRITO ESTA VACIO
@@ -73,10 +100,10 @@ export class CartService {
         this.cartDataServer.data[0].numInCart = (quantity !== undefined) ? quantity : 1;
         this.calculateTotal();
         this.cartDataClient.prodData[0].incart = this.cartDataServer.data[0].numInCart;
-        this.cartDataClient.prodData[0].id = prod.id;
+        this.cartDataClient.prodData[0].id = prod?.id;
         this.cartDataClient.total = this.cartDataServer.total;
         localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
-        // this.cartDataObs$.next({...this.cartDataServer});
+        this.cartDataObs$.next({...this.cartDataServer});
         
       }  // END of IF
       // Cart is not empty
@@ -87,6 +114,7 @@ export class CartService {
         if (index !== -1) {
 
           if (quantity !== undefined && quantity <= prod.quantity) {
+
             // @ts-ignore
             this.cartDataServer.data[index].numInCart = this.cartDataServer.data[index].numInCart < prod.quantity ? quantity : prod.quantity;
           } else {
@@ -112,7 +140,7 @@ export class CartService {
         this.calculateTotal();
         this.cartDataClient.total = this.cartDataServer.total;
         localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
-        // this.cartDataObs$.next({...this.cartDataServer});
+        this.cartDataObs$.next({...this.cartDataServer});
       }  // END of ELSE
 
 
@@ -127,7 +155,7 @@ export class CartService {
     // el total sera (300 + (5*200)= 1300), y asi susecivamente...
     //
     this.cartDataServer.data.forEach( p =>{
-      const price = p.product.price
+      const price = p.product?.price
       const numInCart = p.numInCart
       Total += numInCart * price
     })

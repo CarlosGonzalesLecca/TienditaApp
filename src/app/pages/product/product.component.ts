@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
-import { switchMap } from 'rxjs/operators';
 import { Producto } from '../../interfaces/productos.interfaces';
 
 declare let $: any;
@@ -11,7 +10,7 @@ declare let $: any;
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent implements OnInit,AfterViewInit {
+export class ProductComponent implements OnInit {
 
   producto: Producto = {
     id: 0,
@@ -23,6 +22,8 @@ export class ProductComponent implements OnInit,AfterViewInit {
     quantity: 0,
     images: []
   };
+
+  codigo:number
 
   secondaryImages: any[] = [];
 
@@ -37,22 +38,19 @@ export class ProductComponent implements OnInit,AfterViewInit {
   }
   
   ngOnInit(): void {
-    this.activatedRoute.params
-    .pipe(
-      switchMap(params=>this.productService.getSingleProduct(params.id))
-      ).subscribe(prod=>{
-        this.producto = prod
-        this.secondaryImages = prod.images
-      })
+
+    this.activatedRoute.params.subscribe(param=>{
+      this.codigo = param.id
+      console.log(this.codigo)      
+    })
+
+    this.productService.getSingleProduct(this.codigo*1).subscribe(prod=>{
+      this.producto = prod[0]
+      console.log(this.producto)
+      this.secondaryImages = this.producto.images
+    })
   }
 
-  ngAfterViewInit(): void {
-
-    
-    console.log("AFTERVIEWINIT")
-    
-    
-  }
     
   Increase() {
     let value = parseInt(this.quantityInput.nativeElement.value);
@@ -61,7 +59,7 @@ export class ProductComponent implements OnInit,AfterViewInit {
 
       if (value > this.producto.quantity) {
         // @ts-ignore
-        value = this.product.quantity!;
+        value = this.producto.quantity!;
       }
     } else {
       return;

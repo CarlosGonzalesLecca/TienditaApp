@@ -2,14 +2,15 @@
   "productos": [
     {
       "id": 1,
-      "name": "Asus ROG Strix G17 17.3''",
+      "name": "Asus ROG Strix G17 17.3c",
       "category": "Tecnología",
       "description": "Intel Core i7 1TB SSD 16GB RAM 6GB Video",
       "image": "https://plazavea.vteximg.com.br/arquivos/ids/1267735-1000-1000/image-7ca8ed7127414b03b14a9393b299c3e4.jpg?v=637520533529430000",
       "price": 7099,
       "quantity": 20,
       "images": [
-        
+        "https://www.pcglobal.com.pe/1481-medium_default/asus-rog-strix-g17-amd-r9-5900hx-16gb-1tb-ssd-173-6gb-rtx3060.jpg",
+        "https://www.notebookcheck.org/fileadmin/Notebooks/Asus/Strix_SCAR_III_G731GV/g731gw_4_2.jpg"
       ]
     },
     {
@@ -34,27 +35,38 @@
       "image": "https://www.lavictoria.ec/wp-content/uploads/2021/07/CONSOLA-PLAY-STATION-5-VERSION-BLU-RAY-SONY-CRASH-SPIDERMAN-1.jpg",
       "price": 3790,
       "quantity": 31,
-      "images": ""
+      "images": [
+        "https://i1.wp.com/hipertextual.com/wp-content/uploads/2020/11/PlayStation-5-PS5-5-scaled.jpg?fit=2560%2C1707&ssl=1",
+        "https://e00-marca.uecdn.es/assets/multimedia/imagenes/2020/09/30/16014532135856.jpg",
+        "https://www.mistertecno.com/2944-large_default/sony-consola-playstation-5.jpg"
+      ]
     },
     {
       "id": 4,
       "name": "Adidas Yeezy Max 2020",
       "category": "Calzado",
       "description": "zapatillas modelo 2020 Yeezy Ultra Confort",
-      "image": "https://sneakernews.com/wp-content/uploads/2019/10/adidas-yeezy-700-mnvn-triple-black.jpg",
+      "image":"https://exclusiveshopperu.com/wp-content/uploads/adidas-yeezy-700-v3-alvah-3.jpg",
       "price": 490,
       "quantity": 11,
-      "images": ""
+      "images": [
+        "https://sneakernews.com/wp-content/uploads/2019/10/adidas-yeezy-700-mnvn-triple-black.jpg",
+        "https://media.revistagq.com/photos/5dfe1dbe97458e0008dce53a/master/w_1600%2Cc_limit/adidas-yeezy-700-v3-azael-official-images-3.jpg",
+        "https://www.kicksonfire.com/wp-content/uploads/2020/08/adidas-Yeezy-700-V3-Arzareth.jpg"
+      ]
     },
     {
       "id": 5,
       "name": "Jordan 2020",
       "category": "Calzado",
       "description": "Botines modelo 2021 Jordan Ultra Confort",
-      "image": "https://media.revistagq.com/photos/5ca5e76627f264839a7c7d01/master/w_1500,c_limit/zapatillas_historicas_baloncesto__134988628.jpg",
+      "image": "https://static.footshop.com/380902/61138.jpg",
       "price": 490,
       "quantity": 0,
-      "images": ""
+      "images": [
+        "https://media.revistagq.com/photos/5ca5e76627f264839a7c7d01/master/w_1500,c_limit/zapatillas_historicas_baloncesto__134988628.jpg",        
+        "https://static.nike.com/a/images/t_prod_ss/w_960,c_limit,f_auto/xxf2d255rqv3361bczzm/air-jordan-13-retro-wolf-grey.jpg"
+      ]
     },
     {
       "id": 6,
@@ -64,7 +76,10 @@
       "image": "https://m.media-amazon.com/images/I/71ZrwxeXnXL._SL1500_.jpg",
       "price": 1590,
       "quantity": 26,
-      "images": ""
+      "images": [
+        "https://m.media-amazon.com/images/I/71ZrwxeXnXL._SL1500_.jpg",
+        "https://phantom.pe/pub/media/catalog/product/cache/71a032b60710d907b279b6023a79a12b/p/s/ps4_mega_pack_2.jpg"
+      ]
     },
     {
       "id": 7,
@@ -100,7 +115,8 @@
       "price": 290,
       "quantity": 12,
       "images": [
-        
+        "https://media.redadn.es/imagenes/god-of-war-collection-playstation-3_42330.jpg",
+        "https://http2.mlstatic.com/D_NQ_NP_709255-MPE41296395750_032020-O.jpg"
       ]
     },    
     {
@@ -111,7 +127,9 @@
       "image": "https://d500.epimg.net/cincodias/imagenes/2020/09/28/smartphones/1601280785_078185_1601281059_noticia_normal.jpg",
       "price": 7670,
       "quantity": 30,
-      "images": [        
+      "images": [      
+        "https://falabella.scene7.com/is/image/FalabellaPE/17763656_1?wid=800&hei=800&qlt=70",
+        "https://i.blogs.es/a812a4/iphone-12-iphone-12-pro-analisis-applesfera--28/1366_2000.jpg"  
       ]
     },    
     {
@@ -122,7 +140,9 @@
       "image": "https://falabella.scene7.com/is/image/FalabellaPE/17750113_1?wid=800&hei=800&qlt=70",
       "price": 7399,
       "quantity": 10,
-      "images": [        
+      "images": [  
+        "https://falabella.scene7.com/is/image/FalabellaPE/17750113_6?wid=800&hei=800&qlt=70",
+        "https://falabella.scene7.com/is/image/FalabellaPE/17986065"  
       ]
     }  
   ]

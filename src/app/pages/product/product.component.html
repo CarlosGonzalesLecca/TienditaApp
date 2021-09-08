@@ -16,7 +16,7 @@
       <!-- /row -->
     </div>
     <!-- /container -->
-  </div>
+</div>
   <!-- /BREADCRUMB -->
   
   <!-- SECTION -->
@@ -59,7 +59,7 @@
         <!-- Product details -->
         <div class="col-md-5">
           <div class="product-details">
-            <h2 class="product-name">{{producto?.name}}</h2>
+            <h2 class="product-name">{{producto.name}}</h2>
             <div>
               <div class="product-rating">
                 <i class="fa fa-star"></i>
@@ -71,10 +71,10 @@
               <a class="review-link" href="#">10 Review(s) | Add your review</a>
             </div>
             <div>
-              <h3 class="product-price">{{producto?.price | currency:'USD'}} </h3>
-              <span class="product-available">In Stock</span>
+              <h3 class="product-price">{{producto.price | currency:'PEN'}} </h3>
+              <span class="product-available">{{producto.quantity === 0 ? "Agotado" : "En Stock"}}</span>
             </div>
-            <p>{{producto?.description}}</p>
+            <p>{{producto.description}}</p>
   
   
             <div class="add-to-cart">
@@ -97,7 +97,7 @@
             </div>
   
             <ul class="product-links">
-              <li>Category:</li>
+              <li>Categoría:</li>
               <!-- <li><a href="#">{{product?.category}}</a></li> -->
             </ul>
   
@@ -119,43 +119,24 @@
             <!-- product tab nav -->
             <ul class="tab-nav" role="tablist">
               <li class="active" role="presentation"><a data-toggle="tab" href="#tab1" role="tab">Description</a></li>
-              <li role="presentation"><a data-toggle="tab" href="#tab2" role="tab">Details</a></li>
-              <li role="presentation"><a data-toggle="tab" href="#tab3" role="tab">Reviews (3)</a></li>
+              <li role="presentation"><a data-toggle="tab" href="#tab2" role="tab">Reviews (3)</a></li>
             </ul>
             <!-- /product tab nav -->
   
             <!-- product tab content -->
             <div class="tab-content">
               <!-- tab1  -->
-              <div class="tab-pane fade in active" id="tab1" role="tabpanel">
+              <div class="tab-pane active" id="tab1" role="tabpanel">
                 <div class="row">
                   <div class="col-md-12">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                      nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                      esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                      culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>{{producto.description}}</p>
                   </div>
                 </div>
               </div>
-              <!-- /tab1  -->
-  
+              <!-- tab1  --> 
+             
               <!-- tab2  -->
-              <div class="tab-pane fade in" id="tab2" role="tabpanel">
-                <div class="row">
-                  <div class="col-md-12">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                      nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                      esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                      culpa qui officia deserunt mollit anim id est laborum.</p>
-                  </div>
-                </div>
-              </div>
-              <!-- /tab2  -->
-  
-              <!-- tab3  -->
-              <div class="tab-pane fade in" id="tab3" role="tabpanel">
+              <div class="tab-pane" id="tab2" role="tabpanel">
                 <div class="row">
                   <!-- Rating -->
                   <div class="col-md-3">
@@ -354,7 +335,7 @@
   
         <div class="col-md-12">
           <div class="section-title text-center">
-            <h3 class="title">Related Products</h3>
+            <h3 class="title">Nuevos Productos</h3>
           </div>
         </div>
   
@@ -368,19 +349,19 @@
               </div>
             </div>
             <div class="product-body">
-              <p class="product-category">Category</p>
-              <h3 class="product-name"><a href="#">product name goes here</a></h3>
+              <p class="product-category">Categoría</p>
+              <h3 class="product-name"><a href="#">nombre del producto</a></h3>
               <h4 class="product-price">$980.00
                 <del class="product-old-price">$990.00</del>
               </h4>
               <div class="product-rating">
               </div>
               <div class="product-btns">
-                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span>
+                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">agregar a la lista de deseos</span>
                 </button>
-                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span>
+                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">agregar y comparar</span>
                 </button>
-                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">vista rápida</span></button>
               </div>
             </div>
             <div class="add-to-cart">
@@ -396,12 +377,12 @@
             <div class="product-img">
               <img alt="" src="assets/img/product02.png">
               <div class="product-label">
-                <span class="new">NEW</span>
+                <span class="new">Nuevo</span>
               </div>
             </div>
             <div class="product-body">
-              <p class="product-category">Category</p>
-              <h3 class="product-name"><a href="#">product name goes here</a></h3>
+              <p class="product-category">Categoría</p>
+              <h3 class="product-name"><a href="#">nombre del producto</a></h3>
               <h4 class="product-price">$980.00
                 <del class="product-old-price">$990.00</del>
               </h4>
@@ -413,15 +394,15 @@
                 <i class="fa fa-star"></i>
               </div>
               <div class="product-btns">
-                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span>
+                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Agregar a la lista de deseos</span>
                 </button>
-                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span>
+                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Agregar y comparar</span>
                 </button>
-                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Vista rápida</span></button>
               </div>
             </div>
             <div class="add-to-cart">
-              <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+              <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>add to cart</button>
             </div>
           </div>
         </div>
@@ -436,8 +417,8 @@
               <img alt="" src="assets/img/product03.png">
             </div>
             <div class="product-body">
-              <p class="product-category">Category</p>
-              <h3 class="product-name"><a href="#">product name goes here</a></h3>
+              <p class="product-category">Categoría</p>
+              <h3 class="product-name"><a href="#">nombre del producto aqui</a></h3>
               <h4 class="product-price">$980.00
                 <del class="product-old-price">$990.00</del>
               </h4>
@@ -449,11 +430,11 @@
                 <i class="fa fa-star-o"></i>
               </div>
               <div class="product-btns">
-                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span>
+                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">agregar a la lista de deseos</span>
                 </button>
-                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span>
+                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">agregar y comparar</span>
                 </button>
-                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">vista rápida</span></button>
               </div>
             </div>
             <div class="add-to-cart">
@@ -470,7 +451,7 @@
               <img alt="" src="assets/img/product04.png">
             </div>
             <div class="product-body">
-              <p class="product-category">Category</p>
+              <p class="product-category">Categoría</p>
               <h3 class="product-name"><a href="#">product name goes here</a></h3>
               <h4 class="product-price">$980.00
                 <del class="product-old-price">$990.00</del>
@@ -478,11 +459,11 @@
               <div class="product-rating">
               </div>
               <div class="product-btns">
-                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span>
+                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">agregar a la lista de deseos</span>
                 </button>
-                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span>
+                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">agregar y comparar</span>
                 </button>
-                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">vista rápida</span></button>
               </div>
             </div>
             <div class="add-to-cart">

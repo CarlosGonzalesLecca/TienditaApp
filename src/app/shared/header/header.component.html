@@ -1,5 +1,5 @@
 <!-- HEADER -->
-<header>
+  <header>
     <!-- TOP HEADER -->
     <div id="top-header">
       <div class="container">
@@ -19,7 +19,7 @@
     <!-- MAIN HEADER -->
     <div id="header">
       <!-- container -->
-      <div class="container">
+      <div class="container fix">
         <!-- row -->
         <div class="row">
           <!-- LOGO -->
@@ -36,7 +36,7 @@
           <div class="col-md-6">
             <div class="header-search">
               <form>
-                <input class="input in_header" placeholder="Search here">
+                <input class="input in_header" placeholder="Buscar aquí">
                 <button class="search-btn">Buscar</button>
               </form>
             </div>
@@ -61,48 +61,18 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" style="cursor: pointer;">
                   <i class="fa fa-shopping-cart"></i>
                   <span>Mi Carrito</span>
-                  <div class="qty">{{cartData.data[0].numInCart !== 0 ? cartData.data.length : 0}}</div>
+                  <!-- error si solo se pone cardData.data.lenght -->
+                  <div class="qty">{{cartData.total === 0 ? "0" : cartData.data.length}}</div>
                 </a>
                 <div class="cart-dropdown" >
-                  <div class="cart-list" >
-                    <div *ngIf="cartData.data[0]?.numInCart === 0; else Data">
-                      <span>no hay items seleccionados</span>
-                    </div>
-
-                    <ng-template #Data>
-                      <div class="product-widget" *ngFor="let c of cartData.data; let i=index" >
-                        <div class="product-img">
-                          <img src="{{c.product?.image}}" alt="" width="20px">
-                        </div>
-                        <div class="product-body">
-                          <h3 class="product-name"><a href="#">{{c.product?.name}}</a></h3>
-                          <h4 class="product-price"><span class="qty">{{c.numInCart}} x</span>{{c.product?.price|currency:'PEN'}}</h4>
-                        </div>
-                        <button class="delete" ><i class="fa fa-close"></i></button>
-                      </div>
-                    </ng-template>
-                    
-                  </div>
                   <div class="cart-summary">
-                    <small>{{cartData.data.length}} Item(s) seleccionados</small>
+                    <small>{{cartData.total === 0 ? "0" : cartData.data.length}} Item(s) seleccionados</small>
                     <h5>TOTAL : {{cartTotal|currency:'PEN'}}</h5>
-                  </div>
-                  <div class="cart-btns">
-                    <a routerLink="/cart">View Cart</a>
-                    <a routerLink="/checkout">Checkout <i class="fa fa-arrow-circle-right"></i></a>
-                  </div>
+                  </div>                  
                 </div>
               </div>
               <!-- /Cart -->
-  
-              <!-- Menu Toogle -->
-              <div class="menu-toggle">
-                <a href="#">
-                  <i class="fa fa-bars"></i>
-                  <span>Menu</span>
-                </a>
-              </div>
-              <!-- /Menu Toogle -->
+
             </div>
           </div>
           <!-- /ACCOUNT -->
@@ -116,8 +86,8 @@
   <!-- /HEADER -->
   
   <!-- NAVIGATION -->
-    <div class="subheader">
-      <h3>Encuentra los productos mas innovadores a los mejores precios, aquí en la <strong>TIENDITA</strong> Online</h3>
-    </div>
+  <div class="subheader">
+    <h3>Encuentra los productos mas innovadores a los mejores precios, aquí en la <strong>TIENDITA</strong> Online</h3>
+  </div>
   <!-- /NAVIGATION -->
   

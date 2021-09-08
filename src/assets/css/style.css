@@ -120,7 +120,6 @@ ul, ol {
   padding: 0px 15px;
   border: 1px solid #E4E7ED;
   background-color: #FFF;
-  width: 100%;
 }
 
 textarea.input {
@@ -453,16 +452,12 @@ textarea.input {
   float: left;
 }
 
-.header-logo .logo img {
-  display: block;
-}
-
 /*----------------------------*\
 	Search
 \*----------------------------*/
 
 .header-search {
-  padding: 15px 0px;
+  padding: 15px 10px;
 }
 
 .header-search form {
@@ -474,14 +469,11 @@ textarea.input {
   border-radius: 40px 0px 0px 40px;
 }
 
-.header-search form .input {
-  width: calc(100% - 260px);
-  margin-right: -4px;
-}
+
 
 .header-search form .search-btn {
   height: 40px;
-  width: 100px;
+  width: 80px;
   background: #D10024;
   color: #FFF;
   font-weight: 700;
@@ -495,6 +487,7 @@ textarea.input {
 
 .header-ctn {
   float: right;
+  display: flex;
   padding: 15px 0px;
 }
 
@@ -537,9 +530,6 @@ textarea.input {
   background-color: #D10024;
 }
 
-.header-ctn .menu-toggle {
-  display: none;
-}
 
 .cart-dropdown {
   position: absolute;
@@ -666,9 +656,7 @@ textarea.input {
 \*----------------------------*/
 
 @media only screen and (max-width: 991px) {
-  .header-ctn .menu-toggle {
-    display: inline-block;
-  }
+  
   #responsive-nav {
     position: fixed;
     left: 0;
@@ -686,12 +674,7 @@ textarea.input {
     -webkit-transition: 0.2s all;
     transition: 0.2s all;
   }
-  #responsive-nav.active {
-    -webkit-transform: translateX(0%);
-    -ms-transform: translateX(0%);
-    transform: translateX(0%);
-    width: 100%;
-  }
+  
   .main-nav {
     margin: 0px;
     float: none;
@@ -789,22 +772,22 @@ textarea.input {
 
 
 .imgpost{
-  background-image: url("./../../../assets/img/nike2.png");
-  width: 600px;
+  background-image: url(./../../../assets/img/nike2.png);
+  width: 650px;
   height: 400px;
+  background-repeat: round;
   position: absolute;
-  left: -20%;
-  top: -20%;
-  z-index: -1;
+  left: -15%;
+  top: -15%;
 }
 .imgback{
   background-image: url(/assets/img/airjordan2.png);
   background-repeat: round;
+  position: absolute;
   width: 400px;
   height: 400px;
-  position: absolute;
-  right: -10%;
-  top: -20%;  
+  right: -8%;
+  top: -18%;
 }
 
 .article{
@@ -1200,11 +1183,6 @@ textarea.input {
   margin-bottom: -60px;
 }
 
-.products-tabs>.tab-pane.active {
-  opacity: 1;
-  visibility: visible;
-  height: auto;
-}
 
 .products-slick-nav {
   position: absolute;
@@ -2131,6 +2109,50 @@ textarea.input {
   right: -20px;
 }
 
+.pipe_buttons{
+  margin: 2.5rem;
+  text-align: center;
+}
+
+.pipe_buttons button{
+  margin-right: 1rem;
+  width: 180px;
+  border-radius: 5px;
+}
+
+
+.in_header{
+  position: relative;
+  border-radius: 50px 0 0 50px;
+  outline: none;
+}
+
+.search-btn{
+  position: absolute;
+}
+
+.header-logo{
+  margin-top: 1rem;
+}
+
+.logo{
+  font-size: 2em;
+  color: aliceblue;
+}
+
+.subheader{
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.subheader h3{    
+  font-weight: 500;
+}
+
+.container.fix{
+  width: 100%;
+}
+
 /*----------------------------*\
 	Dots
 \*----------------------------*/
@@ -2160,7 +2182,41 @@ textarea.input {
 	13 -> RESPONSIVE
 ===========================================================*/
 
-@media only screen and (max-width: 1201px) {}
+@media only screen and (max-width: 1379px) {
+  .imgback{
+    width: 300px;
+    height: 400px;
+    right: -3%;
+    top: -18%;
+  }
+
+  .imgpost{
+    width: 500px;
+    height: 400px;
+    left: -8%;
+  }
+}
+
+@media only screen and (min-width: 1700px){
+  .imgback{
+    right: -25%;
+  }
+  .imgpost{
+    left: -35%;
+  }
+}
+
+@media only screen and (max-width: 1150px){
+  .imgback{
+    display: none;
+    transition: 1s;
+  }
+
+  .imgpost{
+    display: none;
+    transition: 1s;
+  }
+}
 
 @media only screen and (max-width: 991px) {
   #top-header .header-links.pull-left {
@@ -2172,7 +2228,7 @@ textarea.input {
   }
   .header-logo {
     float: none;
-    text-align: center;
+    margin-left: 1rem;
   }
   .header-logo .logo {
     display: inline-block;
@@ -2188,6 +2244,7 @@ textarea.input {
     margin-top: 30px;
     margin-bottom: 30px;
   }
+
 }
 
 @media only screen and (max-width: 767px) {

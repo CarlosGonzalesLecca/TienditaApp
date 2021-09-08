@@ -5,6 +5,7 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductComponent } from '../pages/product/product.component';
 import { TarjetaProductComponent } from './tarjeta-product/tarjeta-product.component';
+import { ProductsCardComponent } from './products-card/products-card.component';
 
 
 @NgModule({
@@ -12,12 +13,14 @@ import { TarjetaProductComponent } from './tarjeta-product/tarjeta-product.compo
     CartComponent,
     CheckoutComponent,
     ProductComponent,
-    TarjetaProductComponent
+    TarjetaProductComponent,
+    ProductsCardComponent
   ],
   exports:[
     CartComponent,
     ProductComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ProductsCardComponent
   ],
   imports: [
     CommonModule
