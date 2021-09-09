@@ -32,14 +32,11 @@ export class ProductService {
   }
 
   getForTermino(termino:string){
-    let prods = datos.productos.find(prod=>{
-      let obj = prod.name.toLocaleLowerCase().trim().includes(termino)
-      if(obj){
-        return obj
-      }else{
-        return undefined
-      }
-     })
-     return of(prods)
+    let prods = datos.productos.filter(prod=>{
+      prod.name.toLocaleLowerCase().trim().includes(termino.toLocaleLowerCase())
+    })
+    return prods
   }
+
+  
 }

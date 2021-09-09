@@ -43,23 +43,13 @@
                     <mat-autocomplete #auto="matAutocomplete" (optionSelected)="opcionseleccionada($event)">
                       
                       <mat-option *ngFor="let product of products" [value]="product">          
-                        <div *ngIf="products[0]; else name">
+                        <div>
                           {{product?.name}} 
                         </div>           
-                      </mat-option> 
-                      <ng-template #name>
-                        <mat-option value = "">          
-                          <div>
-                            No se encontró resultados para el término {{termino}}
-                          </div>           
-                        </mat-option>          
-                      </ng-template>
-                                  
+                      </mat-option>                                   
                       
                     </mat-autocomplete>      
-                         <!-- <div>
-                           <pre>{{heroeseleccionado|json}}</pre>
-                         </div> -->
+                         
               </mat-form-field>
               </div>
               <!-- /NAV -->
@@ -78,9 +68,8 @@
           </div><br>
           <div class="row products__container">
             <div class="col-md-4 col-sm-6 products__content" *ngFor="let product of products|ordenar:poralfa">
-              <app-products-card [product]="product" *ngIf="product?.name else error"></app-products-card>
+              <app-products-card [product]="product"></app-products-card>
               <!-- <div class="card my-2">
-
                   <img [src]="product.image" 
                   (click)="selectProduct(product.id)"
                   alt="product.name" 
@@ -112,18 +101,18 @@
   
               </div>   -->
               
-              
             </div>
             
           </div>
 
           
-          <ng-template #error>
+          <div *ngIf="errorfound">
             <h2>No se encontraron resultados para tu búsqueda</h2>
             <div>
               <p>verifica el texto ingresado en el buscador</p>
             </div>
-          </ng-template>
+          </div>
+          
           
             
   

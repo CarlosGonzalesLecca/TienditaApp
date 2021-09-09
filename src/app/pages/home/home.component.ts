@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 import { Producto } from '../../interfaces/productos.interfaces';
+import * as datos from '../../../assets/json/db.json';
 
 
 @Component({
@@ -34,11 +35,9 @@ export class HomeComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    //metodo matriz para traer todos los productos al inicializar el componente
     this.productService.getProducts().subscribe(prods=>{
       this.products = prods
-    })
-    
+    })    
   }
 
   
@@ -58,44 +57,29 @@ export class HomeComponent implements OnInit {
     
   }
 
-
   //este metodo buscara productos mediante el valor del mat-input
-
   buscar(){
-    this.productService.getForTermino(this.termino)
-     .subscribe(resp=>{
-      //  console.log(resp)
-       if(resp === undefined){
-         this.errorfound === true
-       }
-         const array = Array.from([resp])
-         this.products = array;   
-       
-     })
-
-       if(this.termino === ''){
-        return this.productService.getProducts().subscribe(resp=>{
-           this.products = resp
-        })
-       }
-    
+    const objt = datos.productos
+    const prods = objt.filter(prod=>prod.name.toLocaleLowerCase().includes(this.termino.toLocaleLowerCase()))
+     this.products = prods
+     if(prods.length === 0){
+      return this.errorfound = true
+     }else{
+       return this.errorfound = false
+     }
   }
 
 
   //este metodo pondra en el input la opcion seleccionada 
   opcionseleccionada(event:MatAutocompleteSelectedEvent){
     
-    const producto: Producto = event.option.value    
+    const producto:Producto = event.option.value    
     this.termino= producto?.name
-    // console.log(this.termino)
-    this.productService.getSingleProduct(producto.id)
-    .subscribe(prod=>{this.products = prod},err=>{
-      this.errorfound = true
-      this.products = []
-    })
+    this.buscar()
+    
   }
 
-
+  //funcion para PIPE
   ordenarporalfa(valor:string){
     this.poralfa = valor
   }
