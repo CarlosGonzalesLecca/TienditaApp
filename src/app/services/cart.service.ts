@@ -1,22 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { CartServer, CartUsuario } from '../interfaces/cart.interfaces';
+import { CartServer} from '../interfaces/cart.interfaces';
 import { ProductService } from './product.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-
-  private cartDataClient: CartUsuario= {
-    prodData: [{
-      incart: 0,
-      id: 0
-    }],
-     total: 0
-  };  
-
+ 
   private cartDataServer: CartServer = {
     data: [{
       product: undefined,
@@ -33,40 +25,10 @@ export class CartService {
   constructor(
     private productService: ProductService,
     private router: Router,
-  ) { 
-    
-    // let infoUserCart: CartUsuario = JSON.parse(localStorage.getItem('cart')); 
-
-    // if (infoUserCart !== null && infoUserCart !== undefined && infoUserCart.total !== 0){
-    //   this.cartDataClient = infoUserCart;
-    //   this.cartDataClient.prodData.forEach(prodData=> {
-    //     this.productService.getSingleProduct(prodData.id).subscribe(actualProduct=>{
-    //       // if (this.cartDataServer.data[0].numInCart === 0) {
-    //       //   this.cartDataServer.data[0].product = actualProduct;
-    //       //   this.cartDataServer.data[0].numInCart = prodData.incart;
-    //       //   this.calculateTotal();
-            
-    //       //   this.cartDataClient.total = this.cartDataServer.total
-    //         localStorage.setItem('cart',JSON.stringify(this.cartDataClient))
-    //       // }
-    //       // else{
-    //         this.cartDataServer.data.push({
-    //           product: actualProduct,
-    //           numInCart: prodData.incart
-    //         })            
-    //         this.calculateTotal()
-            
-    //         console.log(this.cartDataServer)
-    //         this.cartDataClient.total = this.cartDataServer.total
-    //         localStorage.setItem('cart',JSON.stringify(this.cartDataClient))
-    //       // }
-    //       this.cartDataObs$.next({...this.cartDataServer});
-    //     })
-    //   });
-    // }
-  }
+  ) {}
 
   AddProductInCart(id: number , quantity?: number){
+    //1er paso (analizar el valor del cardataserver)
     this.productService.getSingleProduct(id).subscribe(actualProd=>{
       if (this.cartDataServer.data[0].product  === undefined){
         this.cartDataServer.data[0].product = actualProd
@@ -87,63 +49,6 @@ export class CartService {
       this.cartTotal$.next(this.cartDataServer.total);
       this.cartDataObs$.next({...this.cartDataServer});
     })
-
-  }
-
-  AddProductToCart(id: number, quantity?: number) {
-
-    this.productService.getSingleProduct(id).subscribe(prod => {
-      // SI EL CARRITO ESTA VACIO
-      if (this.cartDataServer.data[0].product === undefined) {
-        this.cartDataServer.data[0].product = prod;
-        this.cartDataServer.data[0].numInCart = (quantity !== undefined) ? quantity : 1;
-        this.calculateTotal();
-        this.cartDataClient.prodData[0].incart = this.cartDataServer.data[0].numInCart;
-        this.cartDataClient.prodData[0].id = prod?.id;
-        this.cartDataClient.total = this.cartDataServer.total;
-        localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
-        this.cartDataObs$.next({...this.cartDataServer});
-        
-      }  // END of IF
-      // Cart is not empty
-      else {
-        let index = this.cartDataServer.data.findIndex(p => p.product.id === prod.id);
-
-        // 1. If chosen product is already in cart array
-        if (index !== -1) {
-
-          if (quantity !== undefined && quantity <= prod.quantity) {
-
-            // @ts-ignore
-            this.cartDataServer.data[index].numInCart = this.cartDataServer.data[index].numInCart < prod.quantity ? quantity : prod.quantity;
-          } else {
-            // @ts-ignore
-            this.cartDataServer.data[index].numInCart < prod.quantity ? this.cartDataServer.data[index].numInCart++ : prod.quantity;
-          }
-
-
-          this.cartDataClient.prodData[index].incart = this.cartDataServer.data[index].numInCart;
-          
-        }
-        // 2. If chosen product is not in cart array
-        else {
-          this.cartDataServer.data.push({
-            product: prod,
-            numInCart: 1
-          });
-          this.cartDataClient.prodData.push({
-            incart: 1,
-            id: prod.id
-          });          
-        }
-        this.calculateTotal();
-        this.cartDataClient.total = this.cartDataServer.total;
-        localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
-        this.cartDataObs$.next({...this.cartDataServer});
-      }  // END of ELSE
-
-
-    });
   }
 
 
@@ -160,7 +65,6 @@ export class CartService {
     })
     this.cartDataServer.total = Total;
     this.cartTotal$.next(this.cartDataServer.total);
-
   }
 
 

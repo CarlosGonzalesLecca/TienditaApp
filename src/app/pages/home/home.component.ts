@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
@@ -12,7 +12,7 @@ import * as datos from '../../../assets/json/db.json';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit{
 
 
   filterProds: '';
@@ -30,14 +30,14 @@ export class HomeComponent implements OnInit {
     private productService: ProductService,
     private cartService: CartService,
     private router: Router
-    ) { 
-      
-    }
+    ) {}
+
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe(prods=>{
       this.products = prods
     })    
+
   }
 
   

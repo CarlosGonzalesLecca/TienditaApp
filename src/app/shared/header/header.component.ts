@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CartServer } from 'src/app/interfaces/cart.interfaces';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -7,7 +7,7 @@ import { CartService } from 'src/app/services/cart.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit{
 
   cartData: CartServer;
   cartTotal: number;
@@ -15,7 +15,9 @@ export class HeaderComponent implements OnInit {
   contadorCarrito: number;
 
   constructor(public cartService: CartService) {
+    
   }
+  
 
   ngOnInit() {
 
@@ -23,7 +25,7 @@ export class HeaderComponent implements OnInit {
     this.cartTotal = total;
   });
 
-  this.cartService.cartDataObs$.subscribe(data =>{
+    this.cartService.cartDataObs$.subscribe(data =>{
     this.cartData = data
   }
     );

@@ -8,10 +8,3 @@ export interface CartServer {
     }];
   }
   
-  export interface CartUsuario {
-    total: number;
-    prodData: [{
-      id: number,
-      incart: number
-    }]
-  }
