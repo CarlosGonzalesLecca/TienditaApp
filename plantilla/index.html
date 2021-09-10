@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>TiendaVirtualApp</title>
+		<base href="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+		<!-- Bootstrap -->
+		<link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+	  	<!-- BoxIcons -->
+		<link href='https://unpkg.com/boxicons@2.0.8/css/boxicons.min.css' rel='stylesheet'>
+
+	  
+		<!-- Font Awesome Icon -->
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	  
+		<!-- Custom stlylesheet -->
+		<link type="text/css" rel="stylesheet" href="assets/css/style.css"/>
+	  
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	</head>
+	<body>
+		<!-- HEADER -->
+		<header>
+			<!-- TOP HEADER -->
+			<div id="top-header">
+				<div class="container">
+					<ul class="header-links pull-left">
+						<li><a href="#"><i class="fa fa-phone"></i> +51 123-456-789</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> lito.cp@email.com</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i> J.Galvez 2345 Lima-Perú</a></li>
+					</ul>
+					<ul class="header-links pull-right">
+						<li><a href="#"><i class="fa fa-dollar"></i> PEN</a></li>
+						<li><a href="#"><i class="fa fa-user-o"></i> Mi Cuenta</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- /TOP HEADER -->
+
+			<!-- MAIN HEADER -->
+			<div id="header">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row-fix">
+						<!-- LOGO -->
+						<div class="col-md-3">
+							<div class="header-logo">
+								<a href="" class="logo">
+									TIENDITA
+								</a>
+							</div>
+						</div>
+						<!-- /LOGO -->
+
+						<!-- ACCOUNT -->
+						<div class="col-md-3 clearfix">
+							<div class="header-ctn">
+							  <!-- Wishlist -->
+							  <div>
+								<a href="#">
+								  <i class="fa fa-heart-o"></i>
+								  <span>Lista de deseos</span>
+								  <div class="qty">0</div>
+								</a>
+							  </div>
+							  <!-- /Wishlist -->
+				  
+							  <!-- Cart -->
+							  <div class="dropdown" >
+								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" style="cursor: pointer;">
+								  <i class="fa fa-shopping-cart"></i>
+								  <span>Mi Carrito</span>
+								  <!-- error si solo se pone cardData.data.lenght -->
+								  <div class="qty">length</div>
+								</a>
+								<div class="cart-dropdown" >
+								  <div class="cart-summary">
+									<small>X Item(s) seleccionados</small>
+									<h5>TOTAL : X PEN</h5>
+								  </div>                  
+								</div>
+							  </div>
+							  <!-- /Cart -->
+				
+							</div>
+						</div>
+						<!-- /ACCOUNT -->
+					</div>
+					<!-- row -->
+				</div>
+				<!-- container -->
+			</div>
+			<!-- /MAIN HEADER -->
+		</header>
+		<!-- /HEADER -->
+
+		<!-- NAVIGATION -->
+		<div class="subheader">
+			<h3>Encuentra los productos mas innovadores a los mejores precios, aquí en la <strong>TIENDITA</strong> Online</h3>
+		  </div>
+		<!-- /NAVIGATION -->
+
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+
+					<!-- section title -->
+					<div class="col-md-12">
+						<div class="section-title">
+							<h3 class="title">Nuevos productos</h3>							
+						</div>
+					</div>
+					<!-- /section title -->
+
+					<nav id="navigation">
+						<!-- container -->
+						<div class="container">
+						  <!-- responsive-nav -->
+						  <div >
+							<!-- NAV -->
+							<ul class="main-nav nav py-3">
+							  <li class="active"><span>Todos</span></li>
+							  <li><span>Calzado</span></li>
+							  <li><span>Tecnología</span></li>
+							  <li><span>Teléfonos</span></li>               
+							  <li><span>Juegos</span></li>               
+							</ul>
+							<br>
+
+							<div>
+								<!-- TODO INPUT FILTER-->							  
+							</div>
+
+							<!-- /NAV -->
+						  </div>
+						  <!-- /responsive-nav -->
+						</div>
+						<!-- /container -->
+					</nav>
+
+					<!-- Products tab & slick -->
+					<div class="col-md-12">
+						<div class="pipe_buttons">
+							<button class="btn btn-outline-primary"><span class="btn-span">Popular <i class='bx bxs-star'></i></span></button>
+							<button class="btn btn-outline-primary"><span class="btn-span">Precio <i class='bx bx-chevron-up'></i></span></button>
+							<button class="btn btn-outline-primary"><span class="btn-span">Precio <i class='bx bx-chevron-down'></i></span></button>
+						</div><br>
+						<div class="row products__container">
+						  <div class="col-md-4 col-sm-6 products__content">
+							<div class="card my-2">			  
+								<img src="assets/img/adidas1.png" 								
+								alt="product name" 
+								width="200px" 
+								class="card-img-top" 
+								style="cursor:pointer;">
+								<div class="card-header">
+								  <div class="card-title">
+									<p>Nombre del Producto</p>
+								  </div>
+								</div>
+								<div class="card-body">
+								  <h6>descripción del producto</h6>
+								  <p class="lead">precio del producto</p>
+								  <p class="lead">categoría</p>
+								</div>
+				
+								<div class="row d-flex justify-content-center border-primary my-3">
+								  <div class="col-md-6 ">
+									<button class="btn btn-outline-primary btn-sm btn-block">
+									  Condicion(en stock o no)
+									</button>
+								  </div>
+								</div>
+				
+							</div>  
+						  </div>
+				
+						</div>
+				
+					</div>
+					<!-- Products tab & slick -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+		<!-- HOT DEAL SECTION -->
+		<div id="hot-deal" class="section">
+			<!-- container -->
+			<div class="container">
+			  <!-- row -->
+			  <div class="row">
+				<div class="col-md-12 article">
+					<div class="imgback"></div>
+					<div class="imgpost"></div>            
+				  <div class="hot-deal">
+					<ul class="hot-deal-countdown">
+					  <li>
+						<div>
+						  <h3>02</h3>
+						  <span>Days</span>
+						</div>
+					  </li>
+					  <li>
+						<div>
+						  <h3>10</h3>
+						  <span>Hours</span>
+						</div>
+					  </li>
+					  <li>
+						<div>
+						  <h3>34</h3>
+						  <span>Mins</span>
+						</div>
+					  </li>
+					  <li>
+						<div>
+						  <h3>60</h3>
+						  <span>Secs</span>
+						</div>
+					  </li>
+					</ul>
+					<h2 class="text-uppercase">hot deal this week</h2>
+					<p>New Collection Up to 50% OFF</p>
+					<a class="primary-btn cta-btn" href="#">Shop now</a>
+				  </div>
+				</div>
+			  </div>
+			  <!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /HOT DEAL SECTION -->
+
+		<!-- NEWSLETTER -->
+		<div id="newsletter" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="newsletter">
+							<p>Sign Up for the <strong>NEWSLETTER</strong></p>
+							<form>
+								<input class="input" type="email" placeholder="Enter Your Email">
+								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+							</form>
+							<ul class="newsletter-follow">
+								<li>
+									<a href="#"><i class="fa fa-facebook"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-instagram"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="fa fa-pinterest"></i></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /NEWSLETTER -->
+
+		<!-- FOOTER -->
+		<footer id="footer">
+			<!-- top footer -->
+			<div class="section">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">About Us</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+								<ul class="footer-links">
+									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
+									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Categories</h3>
+								<ul class="footer-links">
+									<li><a href="#">Hot deals</a></li>
+									<li><a href="#">Laptops</a></li>
+									<li><a href="#">Smartphones</a></li>
+									<li><a href="#">Cameras</a></li>
+									<li><a href="#">Accessories</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="clearfix visible-xs"></div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Information</h3>
+								<ul class="footer-links">
+									<li><a href="#">About Us</a></li>
+									<li><a href="#">Contact Us</a></li>
+									<li><a href="#">Privacy Policy</a></li>
+									<li><a href="#">Orders and Returns</a></li>
+									<li><a href="#">Terms & Conditions</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Service</h3>
+								<ul class="footer-links">
+									<li><a href="#">My Account</a></li>
+									<li><a href="#">View Cart</a></li>
+									<li><a href="#">Wishlist</a></li>
+									<li><a href="#">Track My Order</a></li>
+									<li><a href="#">Help</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /top footer -->
+
+			<!-- bottom footer -->
+			<div id="bottom-footer" class="section">
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<ul class="footer-payments">
+								<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+								<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+							</ul>
+							<span class="copyright">
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								Copyright &copy; 2021 All Rights Reserved</a>
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</span>
+						</div>
+					</div>
+						<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /bottom footer -->
+		</footer>
+		<!-- /FOOTER -->
+
+		<!-- jQuery Plugins -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		
+
+	</body>
+</html>
