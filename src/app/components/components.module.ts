@@ -4,18 +4,21 @@ import { CommonModule } from '@angular/common';
 import { CartComponent } from './cart/cart.component';
 import { ProductComponent } from '../pages/product/product.component';
 import { ProductsCardComponent } from './products-card/products-card.component';
+import { HotDealComponent } from './hot-deal/hot-deal.component';
 
 
 @NgModule({
   declarations: [
     CartComponent,
     ProductComponent,
-    ProductsCardComponent
+    ProductsCardComponent,
+    HotDealComponent
   ],
   exports:[
     CartComponent,
     ProductComponent,
-    ProductsCardComponent
+    ProductsCardComponent,
+    HotDealComponent
   ],
   imports: [
     CommonModule

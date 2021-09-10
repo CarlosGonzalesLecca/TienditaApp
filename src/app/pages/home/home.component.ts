@@ -36,8 +36,25 @@ export class HomeComponent implements OnInit{
   ngOnInit(): void {
     this.productService.getProducts().subscribe(prods=>{
       this.products = prods
-    })    
+    })   
+    
+    this.addRedLine()
+     
+  }
+   
 
+  addRedLine(){
+
+    const link = document.querySelectorAll('.selector')
+    link.forEach(link=>{
+      link.classList.remove('active')
+      link.addEventListener('click',(e)=>{        
+          link.classList.add('active')
+      })
+    })
+      // link.classList.remove('active')
+    
+    
   }
 
   
