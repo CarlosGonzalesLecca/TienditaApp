@@ -413,7 +413,7 @@ textarea.input {
 #top-header {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #114077;
+  background-color: #a10279;
 }
 
 .header-links li {
@@ -446,7 +446,7 @@ textarea.input {
 #header {
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: #114077;
+  background-color: #a10279;
 }
 
 .header-logo {
@@ -630,7 +630,7 @@ textarea.input {
 }
 
 .main-nav>li>span:hover, .main-nav>li>span:focus, .main-nav>li.active>span {
-  color: #D10024;
+  color: #c21196;
   background-color: transparent;
 }
 
@@ -640,7 +640,7 @@ textarea.input {
   width: 0%;
   margin-left: 15px;
   height: 2px;
-  background-color: #D10024;
+  background-color: #c21196;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
 }
@@ -798,7 +798,6 @@ textarea.input {
 
 #hot-deal.section {
   padding: 60px 0px;
-  margin: 30px 0px;
   background-color: #E4E7ED;
   background-position: center;
   background-repeat: no-repeat;

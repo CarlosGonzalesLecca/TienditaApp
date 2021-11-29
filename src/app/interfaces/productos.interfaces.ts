@@ -7,4 +7,4 @@ export interface Producto {
     price: number;
     quantity:   number;
     images?: string[];
-  }
+}

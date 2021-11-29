@@ -8,8 +8,11 @@ export class OrdenarPipe implements PipeTransform {
 
   transform(productos: Producto[], alfa: string): Producto[] {
     switch(alfa){
+      //recordar la funcion de comparacion 
+      //-1, a se situara un indice menor a b
+      //1, a se situara un indice mayor a b
       case 'cantidad':
-        return productos.sort( (a,b)=>(a.quantity> b.quantity) ? -1 : 1)
+        return productos.sort( (a,b)=>(a.quantity > b.quantity) ? -1 : 1)
       case 'preciolow':
         return productos.sort( (a,b)=>(a.price > b.price) ? 1 : -1)
       case 'preciohigh':

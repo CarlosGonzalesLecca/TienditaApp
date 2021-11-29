@@ -5,13 +5,12 @@
       <div class="container">
         <ul class="header-links pull-left">
           <li><a href="#"><i class="fa fa-phone"></i> +51 123-456-789</a></li>
-          <li><a href="#"><i class="fa fa-envelope-o"></i> lito.cp@email.com</a></li>
           <li><a href="#"><i class="fa fa-map-marker"></i> José Galvez 2345 Bellavista-Callao</a></li>
         </ul>
-        <ul class="header-links pull-right">
+        <!-- <ul class="header-links pull-right">
           <li><a href="#"><i class="fa fa-dollar"></i> PEN</a></li>
           <li><a href="#"><i class="fa fa-user-o"></i> Mi Cuenta</a></li>
-        </ul>
+        </ul> -->
       </div>
     </div>
     <!-- /TOP HEADER -->
@@ -26,7 +25,7 @@
           <div class="col-md-3">
             <div class="header-logo">
               <a routerLink="/" class="logo">
-                TIENDITA
+                RAMBO BAR
               </a>
             </div>
           </div>
@@ -49,11 +48,25 @@
               <div class="dropdown" >
                 <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true" style="cursor: pointer;">
                   <i class="fa fa-shopping-cart"></i>
-                  <span>Mi Carrito</span>
+                  <span>Mi Carrito Virtual </span>
                   <!-- error si solo se pone cardData.data.lenght -->
                   <div class="qty">{{cartData.total === 0 ? "0" : cartData.data.length}}</div>
                 </a>
                 <div class="cart-dropdown" >
+                  <div class="cart-list" *ngIf="cartData.total !== 0" >
+                    <div class="product-widget" *ngFor="let c of cartData.data; let i=index">
+                      <div class="product-img">
+                        <img src="{{c.product[0].image}}" alt="" width="20px">
+                      </div>
+                      <div class="product-body">
+                        <h3 class="product-name"><a href="#">{{c.product[0]?.name}}</a></h3>
+                        <h4 class="product-price"><span class="qty">{{c.numInCart}} x </span>{{c.product[0]?.price | currency:'PEN'}}</h4>
+                      </div>
+                      <button title="Eliminar" class="delete" (click)="cartService.DeleteProductFromCart(i)"><i class="fa fa-close"></i></button>
+                    </div>
+  
+  
+                  </div>
                   <div class="cart-summary">
                     <small>{{cartData.total === 0 ? "0" : cartData.data.length}} Item(s) seleccionados</small>
                     <h5>TOTAL : {{cartTotal|currency:'PEN'}}</h5>
@@ -73,10 +86,32 @@
     <!-- /MAIN HEADER -->
   </header>
   <!-- /HEADER -->
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="assets/img/banner1.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img/banner2.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/img/banner1.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+ 
   
   <!-- NAVIGATION -->
   <div class="subheader">
-    <h3 style="margin: 1.5rem;">Encuentra los productos mas innovadores a los mejores precios, aquí en la <strong>TIENDITA</strong> Online</h3>
+    <h3 style="margin: 1.5rem;">Encuentra los productos y promociones a los mejores precios, aquí en <strong>RAMBO BAR</strong></h3>
   </div>
   <!-- /NAVIGATION -->
   

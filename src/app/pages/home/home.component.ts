@@ -14,7 +14,7 @@ import * as datos from '../../../assets/json/db.json';
 })
 export class HomeComponent implements OnInit{
 
-
+  
   filterProds: '';
   products: any;
 

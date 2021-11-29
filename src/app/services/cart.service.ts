@@ -12,10 +12,12 @@ export class CartService {
   private cartDataServer: CartServer = {
     data: [{
       product: undefined,
-      numInCart: 0
+      numInCart: 1
     }],
     total: 0
   };
+
+  
 
   //2 OBSERVADORES QUE IRAN OBSERVANDO EL COMPORTAMIENTO DE DICHAS VARIABLES
   cartTotal$ = new BehaviorSubject<number>(0);
@@ -32,23 +34,43 @@ export class CartService {
     this.productService.getSingleProduct(id).subscribe(actualProd=>{
       if (this.cartDataServer.data[0].product  === undefined){
         this.cartDataServer.data[0].product = actualProd
-      }else{
-        this.cartDataServer.data.push({
-          product: actualProd,
-          numInCart:1
-        })      
+        this.cartDataServer.data[0].numInCart = quantity !== undefined ? quantity : 1;
+      }else{    
+        //JUGADA    
+        let index = this.cartDataServer.data.findIndex(p => p.product[0].id === actualProd[0].id)          
+          // 1. If chosen product is already in cart array
+          //JUGADA 2
+        if (index !== -1) {
+
+          if (quantity !== undefined && quantity <= actualProd[0].quantity) {
+            // @ts-ignore
+            this.cartDataServer.data[index].numInCart = this.cartDataServer.data[index].numInCart < actualProd[0].quantity ? quantity : actualProd[0].quantity;
+          } else {
+            // @ts-ignore
+            this.cartDataServer.data[index].numInCart < actualProd[0].quantity ? this.cartDataServer.data[index].numInCart++ : actualProd[0].quantity;
+          }
+        }
+          else {
+            this.cartDataServer.data.push({
+              product: actualProd,
+              numInCart:1
+            })      
+          }
+                
+          let Total = 0;
+            this.cartDataServer.data.forEach( p =>{
+              const numInCart = p.numInCart;
+              const price = p.product[0].price;
+              Total += numInCart * price;
+            })
+          
+          this.cartDataServer.total = Total;  
+          this.cartTotal$.next(this.cartDataServer.total);
+          this.cartDataObs$.next({...this.cartDataServer});
       }
       
-      let Total = 0;
-        this.cartDataServer.data.forEach( p =>{
-          const price = p.product[0].price
-          Total +=  price
-        })
-      
-      this.cartDataServer.total = Total;  
-      this.cartTotal$.next(this.cartDataServer.total);
-      this.cartDataObs$.next({...this.cartDataServer});
     })
+    // console.log(this.cartDataServer.data)
   }
 
 

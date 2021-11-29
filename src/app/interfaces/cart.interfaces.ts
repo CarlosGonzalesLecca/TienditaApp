@@ -6,5 +6,5 @@ export interface CartServer {
       product: Producto,
       numInCart: number
     }];
-  }
+}
   

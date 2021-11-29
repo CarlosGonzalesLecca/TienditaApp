@@ -20,13 +20,13 @@ export class HeaderComponent implements OnInit{
   
 
   ngOnInit() {
-
+    
     this.cartService.cartTotal$.subscribe(total => {
     this.cartTotal = total;
   });
 
-    this.cartService.cartDataObs$.subscribe(data =>{
-    this.cartData = data
+    this.cartService.cartDataObs$.subscribe(resp =>{
+      this.cartData = resp
   }
     );
 
